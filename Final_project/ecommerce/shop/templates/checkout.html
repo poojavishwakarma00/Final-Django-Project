@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% else %}
+        <ul>
+            {% for item in cart_items %}
+                <li>{{ item.product.name }} - {{ item.quantity }} x ₹{{ item.product.price }}</li>
+            {% endfor %}
+        </ul>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Place Order</button>
+        </form>
+    {% endif %}
+</body>
+</html>

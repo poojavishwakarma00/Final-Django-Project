@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pooja's Cart Book</title>
+</head>
+<body>
+    <h1>Products</h1>
+    <ul>
+        {% for product in products %}
+            <li>
+                <b>{{ product.name }}</b> - ₹{{ product.price }} <br>
+                {{ product.description }} <br>
+                <a href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'cart' %}">View Cart</a>
+</body>
+</html>
